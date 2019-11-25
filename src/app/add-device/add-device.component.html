@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6">
+    <form [formGroup]="this.addDeviceService.form" (ngSubmit)="onSubmit()" >
+     <input type="hidden" formControlName ="$key">
+      <div class="form-group">
+        <label>Device Name</label>
+        <input formControlName ="deviceName" class="form-control" [ngClass] ="{'is-invalid':submitted && formControls.deviceName.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.deviceName.errors">
+          This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Device Location</label>
+        <input formControlName="deviceLocation" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.deviceLocation.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.deviceLocation.errors">
+          This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Device Limit</label>
+        <input formControlName ="deviceLimit" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type ="submit" class="btn btn-primary" value="Submit">
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <app-list-all-devices>
+    </app-list-all-devices>
+  </div>
+
+</div>
